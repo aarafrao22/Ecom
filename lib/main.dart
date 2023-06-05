@@ -29,13 +29,21 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+class Resource {
+  final String text;
+  final String imageUrl;
+
+  Resource({required this.text, required this.imageUrl});
+}
+
 class _MyHomePageState extends State<MyHomePage> {
-  final List<String> items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
+  final List<Resource> items = [
+    Resource(text: "Pizza", imageUrl: "res/img.png"),
+    Resource(text: "Burger", imageUrl: "res/img.png"),
+    Resource(text: "Salad", imageUrl: "res/img.png"),
+    Resource(text: "Pizza", imageUrl: "res/img.png"),
+    Resource(text: "Pizza", imageUrl: "res/img.png"),
+    Resource(text: "Pizza", imageUrl: "res/img.png")
   ];
 
   @override
@@ -109,21 +117,25 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 12,
+              itemCount: items.length,
               itemBuilder: (context, index) {
                 return Container(
-                  width: 150, // Adjust the width as needed
-                  margin: const EdgeInsets.all(8.0),
+                  // height: 120, // Adjust the height as needed
+                  // margin: const EdgeInsets.all(8.0),
                   color: Colors.blue,
                   child: Center(
-                    child: Text(
-                      items[index],
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
+                      child: Row(
+                    children: [
+                      // Image.asset(items[index].imageUrl),
+                      Text(
+                        items[index].text,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                  ),
+                    ],
+                  )),
                 );
               },
             )
