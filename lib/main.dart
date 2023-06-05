@@ -30,6 +30,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final List<String> items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,6 +107,26 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
+            ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 12,
+              itemBuilder: (context, index) {
+                return Container(
+                  width: 150, // Adjust the width as needed
+                  margin: const EdgeInsets.all(8.0),
+                  color: Colors.blue,
+                  child: Center(
+                    child: Text(
+                      items[index],
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            )
           ],
         ),
       ),
