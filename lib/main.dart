@@ -50,29 +50,61 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-      body: Container(
-        margin: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
+      body: Center(
         child: Column(
           children: [
-            TextField(
-                decoration: InputDecoration(
-              suffixIcon: const Icon(Icons.filter_alt),
-              filled: true,
-              labelText: "Search Food",
-              border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(12),
+            const Align(
+              alignment: Alignment.topCenter,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            hintText: 'Search Food',
+                            filled: true,
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(12))),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    elevation: 6,
+                    shadowColor: Colors.grey.shade50,
+                    child: InkWell(
+                      onTap: () {
+                        // Button onPressed logic
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [
+                            Icon(Icons.settings),
+                            SizedBox(width: 4.0),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            )),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
+            ),
           ],
         ),
       ),
       drawer: Drawer(
-        child: Container(
-          child: Column(
-            children: [],
-          ),
+        child: Column(
+          children: [],
         ),
       ),
     );
