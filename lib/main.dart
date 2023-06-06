@@ -141,28 +141,27 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  elevation: 6,
-                  shadowColor: Colors.grey.shade50,
-                  child: InkWell(
-                    onTap: () {
-                      // Button onPressed logic
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: const [
-                          Icon(Icons.settings),
-                          SizedBox(width: 4.0),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                // Card(
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.circular(12),
+                //   ),
+                //   elevation: 6,
+                //   shadowColor: Colors.grey.shade50,
+                //   child: InkWell(
+                //     onTap: () {
+                //       // Button onPressed logic
+                //     },
+                //     child: Padding(
+                //       padding: const EdgeInsets.all(16.0),
+                //       child: Row(
+                //         mainAxisSize: MainAxisSize.min,
+                //         children: const [
+                //           Icon(Icons.settings),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
               ],
             ),
             SizedBox(
