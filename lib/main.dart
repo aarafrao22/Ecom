@@ -364,7 +364,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       bottomNavigationBar:
-          BottomNavigationBar(selectedItemColor: Colors.yellow, items: const [
+          BottomNavigationBar(selectedItemColor: Colors.orange, items: const [
         BottomNavigationBarItem(
           backgroundColor: Colors.black,
           icon: Icon(Icons.home),
