@@ -123,8 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const Align(
               alignment: Alignment.topCenter,
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -281,7 +280,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   Text(
-                    "Favourite Resturants",
+                    "Favourite Restaurants",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   Text(
@@ -291,13 +290,85 @@ class _MyHomePageState extends State<MyHomePage> {
                   )
                 ],
               ),
-            )
+            ),
+            Container(
+              height: 140,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: foods.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    width: 220,
+                    margin: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        borderRadius: BorderRadius.circular(26)),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          foods[index].imageUrl,
+                          height: 80,
+                          width: 80,
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              foods[index].name,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Row(
+                              children: const [
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                Icon(
+                                  Icons.star_border,
+                                  color: Colors.amber,
+                                ),
+                              ],
+                            ),
+                            Text(
+                              foods[index].subname,
+                              style: const TextStyle(
+                                color: Colors.grey,
+                                fontSize: 8,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
       drawer: Drawer(
         child: Column(
-          children: [],
+          children: const [],
         ),
       ),
     );
