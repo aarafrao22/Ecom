@@ -250,7 +250,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                         Row(
-                          //
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                           // mainAxisAlignment: MainAxisAlignment.center,
                           // crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -261,10 +262,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
-                            Icon(Icons.heart_broken)
+                            const Icon(Icons.heart_broken)
                           ],
                         )
                       ],
@@ -273,6 +274,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
             ),
+            Container(
+              margin: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    "Favourite Resturants",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "See All",
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
