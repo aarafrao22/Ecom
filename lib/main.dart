@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
         name: "Thai Spagetti",
         subname: "Spicy Mutton",
         price: "36.00",
-        imageUrl: "res/img.png"),
+        imageUrl: "res/img_1.png"),
     FoodModel(
         name: "Grilled Skewers",
         subname: "Spicy Mutton",
@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
         name: "Thai Spagetti",
         subname: "Spicy Mutton",
         price: "36.00",
-        imageUrl: "res/img.png"),
+        imageUrl: "res/img_1.png"),
     FoodModel(
         name: "Grilled Skewers",
         subname: "Spicy Mutton",
@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
         name: "Thai Spagetti",
         subname: "Spicy Mutton",
         price: "36.00",
-        imageUrl: "res/img.png"),
+        imageUrl: "res/img_1.png"),
     FoodModel(
         name: "Grilled Skewers",
         subname: "Spicy Mutton",
@@ -222,6 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Colors.grey.shade200,
                         borderRadius: BorderRadius.circular(26)),
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       // Center the items horizontally
@@ -248,13 +249,24 @@ class _MyHomePageState extends State<MyHomePage> {
                             fontSize: 10,
                           ),
                         ),
-                        Text(
-                          foods[index].price,
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold),
-                        ),
+                        Row(
+                          //
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          // crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              foods[index].price,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Icon(Icons.heart_broken)
+                          ],
+                        )
                       ],
                     ),
                   );
