@@ -36,6 +36,19 @@ class Resource {
   Resource({required this.text, required this.imageUrl});
 }
 
+class FoodModel {
+  final String name;
+  final String subname;
+  final String price;
+  final String imageUrl;
+
+  FoodModel(
+      {required this.name,
+      required this.subname,
+      required this.price,
+      required this.imageUrl});
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   final List<Resource> items = [
     Resource(text: "Pizza", imageUrl: "res/img.png"),
@@ -43,7 +56,45 @@ class _MyHomePageState extends State<MyHomePage> {
     Resource(text: "Salad", imageUrl: "res/img.png"),
     Resource(text: "Pizza", imageUrl: "res/img.png"),
     Resource(text: "Pizza", imageUrl: "res/img.png"),
-    Resource(text: "Pizza", imageUrl: "res/img.png")
+    Resource(text: "Pizza", imageUrl: "res/img.png"),
+  ];
+
+  final List<FoodModel> foods = [
+    FoodModel(
+        name: "Grilled Skewers",
+        subname: "Spicy Mutton",
+        price: "36.00",
+        imageUrl: "res/img.png"),
+    FoodModel(
+        name: "Thai Spagetti",
+        subname: "Spicy Mutton",
+        price: "36.00",
+        imageUrl: "res/img.png"),
+    FoodModel(
+        name: "Grilled Skewers",
+        subname: "Spicy Mutton",
+        price: "36.00",
+        imageUrl: "res/img.png"),
+    FoodModel(
+        name: "Thai Spagetti",
+        subname: "Spicy Mutton",
+        price: "36.00",
+        imageUrl: "res/img.png"),
+    FoodModel(
+        name: "Grilled Skewers",
+        subname: "Spicy Mutton",
+        price: "36.00",
+        imageUrl: "res/img.png"),
+    FoodModel(
+        name: "Thai Spagetti",
+        subname: "Spicy Mutton",
+        price: "36.00",
+        imageUrl: "res/img.png"),
+    FoodModel(
+        name: "Grilled Skewers",
+        subname: "Spicy Mutton",
+        price: "36.00",
+        imageUrl: "res/img.png"),
   ];
 
   @override
@@ -63,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: const Icon(Icons.supervised_user_circle),
             color: Colors.black,
             onPressed: () {},
-          )
+          ),
         ],
       ),
       body: Center(
@@ -82,11 +133,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: const EdgeInsets.all(16.0),
                       child: TextField(
                         decoration: InputDecoration(
-                            hintText: 'Search Food',
-                            filled: true,
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(12))),
+                          hintText: 'Search Food',
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -115,30 +168,99 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return Container(
-                  // height: 120, // Adjust the height as needed
-                  // margin: const EdgeInsets.all(8.0),
-                  color: Colors.blue,
-                  child: Center(
-                      child: Row(
-                    children: [
-                      // Image.asset(items[index].imageUrl),
-                      Text(
-                        items[index].text,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
+            Container(
+              height: 60,
+              // Set the desired height of the horizontal list
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    width: 100,
+                    margin: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        borderRadius: BorderRadius.circular(26)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      // Center the items horizontally
+                      children: [
+                        Image.asset(
+                          "res/img.png",
+                          height: 24,
+                          width: 24,
                         ),
-                      ),
-                    ],
-                  )),
-                );
-              },
-            )
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        Text(
+                          items[index].text,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+            Container(
+              height: 260,
+              // Set the desired height of the horizontal list
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: foods.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    width: 160,
+                    margin: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        borderRadius: BorderRadius.circular(26)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      // Center the items horizontally
+                      children: [
+                        Image.asset(
+                          foods[index].imageUrl,
+                          height: 140,
+                          width: 140,
+                        ),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          foods[index].name,
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          foods[index].subname,
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 10,
+                          ),
+                        ),
+                        Text(
+                          foods[index].price,
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
