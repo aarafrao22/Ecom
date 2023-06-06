@@ -141,27 +141,27 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                // Card(
-                //   shape: RoundedRectangleBorder(
-                //     borderRadius: BorderRadius.circular(12),
-                //   ),
-                //   elevation: 6,
-                //   shadowColor: Colors.grey.shade50,
-                //   child: InkWell(
-                //     onTap: () {
-                //       // Button onPressed logic
-                //     },
-                //     child: Padding(
-                //       padding: const EdgeInsets.all(16.0),
-                //       child: Row(
-                //         mainAxisSize: MainAxisSize.min,
-                //         children: const [
-                //           Icon(Icons.settings),
-                //         ],
-                //       ),
-                //     ),
-                //   ),
-                // ),
+                Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  elevation: 6,
+                  shadowColor: Colors.grey.shade50,
+                  child: InkWell(
+                    onTap: () {
+                      // Button onPressed logic
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: const [
+                          Icon(Icons.settings),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
             SizedBox(
@@ -363,6 +363,26 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      bottomNavigationBar:
+          BottomNavigationBar(selectedItemColor: Colors.yellow, items: const [
+        BottomNavigationBarItem(
+          backgroundColor: Colors.black,
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.search),
+          label: 'Search',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.favorite),
+          label: 'Favorites',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: 'Profile',
+        ),
+      ]),
       drawer: Drawer(
         child: Column(
           children: const [],
