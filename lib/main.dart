@@ -123,51 +123,49 @@ class _MyHomePageState extends State<MyHomePage> {
             const Align(
               alignment: Alignment.topCenter,
             ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Search Food',
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  elevation: 6,
+                  shadowColor: Colors.grey.shade50,
+                  child: InkWell(
+                    onTap: () {
+                      // Button onPressed logic
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Search Food',
-                          filled: true,
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: const [
+                          Icon(Icons.settings),
+                          SizedBox(width: 4.0),
+                        ],
                       ),
                     ),
                   ),
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    elevation: 6,
-                    shadowColor: Colors.grey.shade50,
-                    child: InkWell(
-                      onTap: () {
-                        // Button onPressed logic
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: const [
-                            Icon(Icons.settings),
-                            SizedBox(width: 4.0),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Container(
+            SizedBox(
               height: 60,
               // Set the desired height of the horizontal list
               child: ListView.builder(
@@ -206,7 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
             ),
-            Container(
+            SizedBox(
               height: 260,
               // Set the desired height of the horizontal list
               child: ListView.builder(
@@ -291,7 +289,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               height: 140,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
