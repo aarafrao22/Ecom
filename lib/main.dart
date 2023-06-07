@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_commerce/FoodDetailActivity.dart';
+import 'package:flutter_commerce/FoodModel.dart';
+import 'package:flutter_commerce/Resource.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,26 +30,6 @@ class MyHomePage extends StatefulWidget {
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class Resource {
-  final String text;
-  final String imageUrl;
-
-  Resource({required this.text, required this.imageUrl});
-}
-
-class FoodModel {
-  final String name;
-  final String subname;
-  final String price;
-  final String imageUrl;
-
-  FoodModel(
-      {required this.name,
-      required this.subname,
-      required this.price,
-      required this.imageUrl});
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -210,61 +193,72 @@ class _MyHomePageState extends State<MyHomePage> {
                 scrollDirection: Axis.horizontal,
                 itemCount: foods.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    width: 160,
-                    margin: const EdgeInsets.all(8.0),
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.circular(26)),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      // Center the items horizontally
-                      children: [
-                        Image.asset(
-                          foods[index].imageUrl,
-                          height: 140,
-                          width: 140,
+                  return GestureDetector(
+                    onTap: () {
+                      // Define your navigation logic here
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const FoodDetailActivity(),
                         ),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        Text(
-                          foods[index].name,
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          foods[index].subname,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 10,
+                      );
+                    },
+                    child: Container(
+                      width: 160,
+                      margin: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          color: Colors.grey.shade200,
+                          borderRadius: BorderRadius.circular(26)),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        // Center the items horizontally
+                        children: [
+                          Image.asset(
+                            foods[index].imageUrl,
+                            height: 140,
+                            width: 140,
                           ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          Text(
+                            foods[index].name,
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            foods[index].subname,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 10,
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                          // mainAxisAlignment: MainAxisAlignment.center,
-                          // crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              foods[index].price,
-                              style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            const Icon(Icons.heart_broken)
-                          ],
-                        )
-                      ],
+                            // mainAxisAlignment: MainAxisAlignment.center,
+                            // crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                foods[index].price,
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Icon(Icons.heart_broken)
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },
