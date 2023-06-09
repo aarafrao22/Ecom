@@ -248,12 +248,12 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
               padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     "Toping for You",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  const Text(
+                  Text(
                     "Clear",
                     style: TextStyle(
                         fontSize: 14,
