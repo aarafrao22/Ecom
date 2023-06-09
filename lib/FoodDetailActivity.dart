@@ -48,6 +48,7 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
         price: "36.00",
         imageUrl: "res/img.png"),
   ];
+  int count = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +63,7 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
               alignment: Alignment.topCenter,
             ),
             Container(
-              margin: const EdgeInsets.all(8.0),
-              padding: const EdgeInsets.all(8),
+              margin: const EdgeInsets.all(16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -105,18 +105,25 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
                     ),
                   ),
                   const Icon(
-                    Icons.heart_broken,
+                    Icons.favorite,
                     color: Colors.red,
+                    size: 24,
                   )
                 ],
               ),
             ),
-            Container(
-              // margin: const EdgeInsets.all(8.0),
-              padding: const EdgeInsets.all(8),
-              child: Image.asset(
-                "res/img.png",
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  height: 260,
+                  // margin: const EdgeInsets.all(8.0),
+                  child: Image.asset(
+                    "res/img_2.png",
+                  ),
+                ),
+              ],
             ),
             Container(
               padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
@@ -131,121 +138,125 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
                       onTap: () {
                         // Button onPressed logic
                       },
-                          child: Padding(
-                            padding:
+                      child: Padding(
+                        padding:
                             const EdgeInsets.fromLTRB(12.0, 6.0, 12.0, 6.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: const [
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
-                                  size: 18.0,
-                                ),
-                                Text(
-                                  "5.0",
-                                  style: TextStyle(
-                                      fontSize: 14, fontWeight: FontWeight.bold),
-                                )
-                              ],
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [
+                            Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                              size: 18.0,
                             ),
-                          ),
+                            Text(
+                              "5.0",
+                              style: TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.bold),
+                            )
+                          ],
                         ),
                       ),
-                      Card(
-                        color: Colors.amber,
-                        // Replace "Colors.blue" with the desired color
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(28)),
-                        child: InkWell(
-                          onTap: () {
-                            // Button onPressed logic
-                          },
-                          child: Padding(
-                            padding:
-                            const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: const [
-                                Icon(
-                                  Icons.minimize_outlined,
-                                  color: Colors.black,
-                                  size: 18.0,
-                                ),
-                                SizedBox(
-                                  width: 4,
-                                ),
-                                Text(
-                                  "03",
-                                  style: TextStyle(
-                                      fontSize: 18, fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  width: 4,
-                                ),
-                                Icon(
-                                  Icons.add,
-                                  color: Colors.black,
-                                  size: 18.0,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                  Card(
+                    color: Colors.amber,
+                    // Replace "Colors.blue" with the desired color
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(28)),
+                    child: InkWell(
+                      onTap: () {
+                        // Button onPressed logic
+                      },
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(
+                              Icons.minimize_outlined,
+                              color: Colors.black,
+                              size: 18.0,
+                            ),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            Text(
+                              count.toString(),
+                              style: const TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                count++;
+                              },
+                              child: const Icon(
+                                Icons.add,
+                                color: Colors.black,
+                                size: 18.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Container(
               margin: const EdgeInsets.fromLTRB(8, 16, 8, 0),
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+              // padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text("Spicy Chicken\nRicemix",
                       style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 26,
                           color: Colors.black,
                           fontWeight: FontWeight.w600)),
                   Row(
                     children: [
                       Padding(
-                            padding:
+                        padding:
                             const EdgeInsets.fromLTRB(12.0, 6.0, 12.0, 6.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                const Icon(
-                                  Icons.alarm,
-                                  color: Colors.redAccent,
-                                  size: 18.0,
-                                ),
-                                Text(
-                                  " 10-15 Mins",
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(
+                              Icons.alarm,
+                              color: Colors.redAccent,
+                              size: 18.0,
+                            ),
+                            Text(
+                              " 10-15 Mins",
                               style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.grey.shade700),
                             )
-                              ],
-                            ),
-                          ),
-                        ],
-                      )
+                          ],
+                        ),
+                      ),
                     ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.all(8.0),
-                  padding: const EdgeInsets.all(8),
-                  child: const Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+                  )
+                ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.all(8.0),
+              child: const Text(
+                "Sed do eiusmod tempor incico laboris. Duis aute irure dolor in velit esse cillum dolore.",
                 style: TextStyle(color: Colors.grey),
               ),
-                ),
+            ),
             Container(
-                  margin: const EdgeInsets.all(8.0),
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+              margin: const EdgeInsets.all(8.0),
+              // padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
@@ -263,8 +274,9 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
                 ],
               ),
             ),
-            SizedBox(
+                Container(
               height: 100,
+              margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: foods.length,
@@ -291,8 +303,80 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
                 },
               ),
             ),
+            Container(
+                margin: const EdgeInsets.fromLTRB(8, 10, 8, 0),
+                // padding: EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Total Price",
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            // crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text("\$ ",
+                                  style: TextStyle(
+                                      color: Colors.amber,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w900)),
+                              Text("36.00",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 26,
+                                      fontWeight: FontWeight.w600))
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Card(
+                        color: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        elevation: 0,
+                        child: Container(
+                          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+                          // Replace with your desired color or widget
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: const [
+                              Icon(
+                                Icons.shopping_cart,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                " Go To Cart",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                            ],
+                          ), // Replace with your desired color or widget
+                        ),
+                      ),
+                    ),
+                  ],
+                ))
           ],
-            )),
+        )),
       ),
     );
   }

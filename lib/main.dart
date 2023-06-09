@@ -254,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               const SizedBox(
                                 width: 10,
                               ),
-                              const Icon(Icons.heart_broken)
+                              const Icon(Icons.favorite)
                             ],
                           )
                         ],
@@ -324,18 +324,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                 Icon(
                                   Icons.star,
                                   color: Colors.amber,
+                                  size: 16,
                                 ),
                                 Icon(
                                   Icons.star,
                                   color: Colors.amber,
+                                  size: 16,
                                 ),
                                 Icon(
                                   Icons.star,
                                   color: Colors.amber,
+                                  size: 16,
                                 ),
                                 Icon(
                                   Icons.star_border,
                                   color: Colors.amber,
+                                  size: 16,
                                 ),
                               ],
                             ),
