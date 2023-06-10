@@ -209,6 +209,18 @@ class _CartActivityState extends State<CartActivity> {
                 },
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: const [
+                  Icon(
+                    Icons.percent,
+                    color: Colors.redAccent,
+                  ),
+                  Text("Do you have any discount code?")
+                ],
+              ),
+            )
           ],
         )),
       ),
