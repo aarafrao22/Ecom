@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_commerce/main.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'FoodModel.dart';
 
@@ -169,35 +170,46 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
                         // Button onPressed logic
                       },
                       child: Padding(
-                        padding:
-                            const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         child: Row(
-                          mainAxisSize: MainAxisSize.min,
+                          // mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            const Icon(
-                              Icons.minimize_outlined,
-                              color: Colors.black,
-                              size: 18.0,
+                            GestureDetector(
+                              onTap: () {
+                                updateCounterSubtract();
+                              },
+                              child: const Padding(
+                                padding: EdgeInsets.all(12),
+                                child: Icon(
+                                  Icons.minimize_outlined,
+                                  color: Colors.black,
+                                  size: 18.0,
+                                ),
+                              ),
                             ),
-                            const SizedBox(
-                              width: 4,
-                            ),
+                            // const SizedBox(
+                            //   width: 4,
+                            // ),
                             Text(
                               count.toString(),
                               style: const TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold),
                             ),
-                            const SizedBox(
-                              width: 4,
-                            ),
+                            // const SizedBox(
+                            //   width: 4,
+                            // ),
                             GestureDetector(
                               onTap: () {
-                                count++;
+                                updateCounterAdd();
                               },
-                              child: const Icon(
-                                Icons.add,
-                                color: Colors.black,
-                                size: 18.0,
+                              child: const Padding(
+                                padding: EdgeInsets.all(12),
+                                child: Icon(
+                                  Icons.add,
+                                  color: Colors.black,
+                                  size: 18.0,
+                                ),
                               ),
                             ),
                           ],
@@ -274,7 +286,7 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
                 ],
               ),
             ),
-                Container(
+            Container(
               height: 100,
               margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
               child: ListView.builder(
@@ -350,26 +362,44 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         elevation: 0,
-                        child: Container(
-                          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-                          // Replace with your desired color or widget
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: const [
-                              Icon(
-                                Icons.shopping_cart,
-                                color: Colors.white,
-                              ),
-                              Text(
-                                " Go To Cart",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w900),
-                              ),
-                            ],
-                          ), // Replace with your desired color or widget
+                        child: GestureDetector(
+                          onTap: () {
+                            Fluttertoast.showToast(
+                              msg: 'Added to Cart',
+                              toastLength: Toast.LENGTH_SHORT,
+                              // Duration for which the toast should be visible (Toast.LENGTH_SHORT or Toast.LENGTH_LONG)
+                              gravity: ToastGravity.BOTTOM,
+                              // Position of the toast on the screen (ToastGravity.TOP, ToastGravity.CENTER, ToastGravity.BOTTOM)
+                              timeInSecForIosWeb: 1,
+                              // Time for which the toast should be visible on iOS and web platforms
+                              backgroundColor: Colors.grey[600],
+                              // Background color of the toast
+                              textColor: Colors.white,
+                              // Text color of the toast
+                              fontSize: 16.0, // Font size of the toast message
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+                            // Replace with your desired color or widget
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [
+                                Icon(
+                                  Icons.shopping_cart,
+                                  color: Colors.white,
+                                ),
+                                Text(
+                                  " Go To Cart",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w900),
+                                ),
+                              ],
+                            ), // Replace with your desired color or widget
+                          ),
                         ),
                       ),
                     ),
@@ -379,5 +409,21 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
         )),
       ),
     );
+  }
+
+  void updateCounterAdd() {
+    int a = count;
+    a = a + 1;
+    setState(() {
+      count = a;
+    });
+  }
+
+  void updateCounterSubtract() {
+    int a = count;
+    a = a - 1;
+    setState(() {
+      count = a;
+    });
   }
 }
