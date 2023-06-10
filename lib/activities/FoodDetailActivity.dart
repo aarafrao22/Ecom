@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_commerce/CartActivity.dart';
-import 'package:flutter_commerce/main.dart';
+import 'package:flutter_commerce/activities/CartActivity.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'FoodModel.dart';
+import '../models/FoodModel.dart';
+import 'MyHomePage.dart';
 
 class FoodDetailActivity extends StatefulWidget {
   const FoodDetailActivity({super.key});
