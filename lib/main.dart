@@ -41,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Resource(text: "Pizza", imageUrl: "res/img.png"),
     Resource(text: "Pizza", imageUrl: "res/img.png"),
   ];
+  int selectedItemIndex = 0;
 
   final List<FoodModel> foods = [
     FoodModel(
@@ -148,39 +149,50 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             SizedBox(
-              height: 60,
+              height: 50,
               // Set the desired height of the horizontal list
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: items.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    width: 100,
-                    margin: const EdgeInsets.all(8.0),
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.circular(26)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      // Center the items horizontally
-                      children: [
-                        Image.asset(
-                          "res/img.png",
-                          height: 24,
-                          width: 24,
-                        ),
-                        const SizedBox(
-                          width: 4,
-                        ),
-                        Text(
-                          items[index].text,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedItemIndex = index;
+                      });
+                    },
+                    child: Container(
+                      width: 100,
+                      margin: const EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          // color: index == 0 ? Colors.amber : Colors.grey.shade200,
+                          color: selectedItemIndex == index
+                              ? Colors.amber
+                              : Colors.grey.shade200,
+                          borderRadius: BorderRadius.circular(26)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        // Center the items horizontally
+                        children: [
+                          Image.asset(
+                            "res/img.png",
+                            height: 24,
+                            width: 24,
                           ),
-                        ),
-                      ],
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          Text(
+                            items[index].text,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
