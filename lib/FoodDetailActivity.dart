@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_commerce/CartActivity.dart';
 import 'package:flutter_commerce/main.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -364,18 +365,19 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
                         elevation: 0,
                         child: GestureDetector(
                           onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const CartActivity(),
+                              ),
+                            );
                             Fluttertoast.showToast(
                               msg: 'Added to Cart',
                               toastLength: Toast.LENGTH_SHORT,
-                              // Duration for which the toast should be visible (Toast.LENGTH_SHORT or Toast.LENGTH_LONG)
                               gravity: ToastGravity.BOTTOM,
-                              // Position of the toast on the screen (ToastGravity.TOP, ToastGravity.CENTER, ToastGravity.BOTTOM)
                               timeInSecForIosWeb: 1,
-                              // Time for which the toast should be visible on iOS and web platforms
                               backgroundColor: Colors.grey[600],
-                              // Background color of the toast
                               textColor: Colors.white,
-                              // Text color of the toast
                               fontSize: 16.0, // Font size of the toast message
                             );
                           },
