@@ -127,11 +127,9 @@ class _CartActivityState extends State<CartActivity> {
               ),
             ),
             SizedBox(
-              height: 260,
-              // Set the desired height of the horizontal list
               child: ListView.builder(
                 scrollDirection: Axis.vertical,
-                itemCount: foods.length,
+                itemCount: 2,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
@@ -144,58 +142,65 @@ class _CartActivityState extends State<CartActivity> {
                       );
                     },
                     child: Container(
-                      width: 160,
-                      margin: const EdgeInsets.all(8.0),
-                      padding: const EdgeInsets.all(8),
+                      margin: const EdgeInsets.all(16),
+                      // padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           color: Colors.grey.shade200,
                           borderRadius: BorderRadius.circular(26)),
-                      child: Column(
+                      child: Row(
                         mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        // Center the items horizontally
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Image.asset(
                             foods[index].imageUrl,
-                            height: 140,
-                            width: 140,
+                            height: 100,
+                            width: 100,
                           ),
-                          const SizedBox(
-                            height: 4,
-                          ),
-                          Text(
-                            foods[index].name,
-                            style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            foods[index].subname,
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 10,
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(16, 0, 0, 0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  foods[index].name,
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "\$${foods[index].price}",
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                            // mainAxisAlignment: MainAxisAlignment.center,
-                            // crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                foods[index].price,
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              const Icon(Icons.favorite)
-                            ],
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: index == 0 ? Colors.amber : Colors.grey.shade200,
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(14)),
+                            child: Column(
+                              children: const [
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(2, 8, 2, 4),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(2, 4, 2, 8),
+                                  child: Icon(
+                                    Icons.minimize,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
                           )
                         ],
                       ),
