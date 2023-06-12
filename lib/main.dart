@@ -166,7 +166,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       margin: const EdgeInsets.all(8),
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                          // color: index == 0 ? Colors.amber : Colors.grey.shade200,
                           color: selectedItemIndex == index
                               ? Colors.amber
                               : Colors.grey.shade200,
@@ -374,7 +373,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       bottomNavigationBar:
-      BottomNavigationBar(selectedItemColor: Colors.orange, items: const [
+          BottomNavigationBar(selectedItemColor: Colors.orange, items: const [
         BottomNavigationBarItem(
           backgroundColor: Colors.black,
           icon: Icon(Icons.home),
