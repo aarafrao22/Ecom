@@ -1,27 +1,9 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter_commerce/FoodDetailActivity.dart';
-import 'package:flutter_commerce/FoodModel.dart';
-import 'package:flutter_commerce/Resource.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+import 'FoodDetailActivity.dart';
+import '../models/FoodModel.dart';
+import '../models/Resource.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -166,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       margin: const EdgeInsets.all(8),
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                          // color: index == 0 ? Colors.amber : Colors.grey.shade200,
+                        // color: index == 0 ? Colors.amber : Colors.grey.shade200,
                           color: selectedItemIndex == index
                               ? Colors.amber
                               : Colors.grey.shade200,
@@ -289,7 +271,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text(
                     "See All",
                     style:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+                    TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
                   )
                 ],
               ),

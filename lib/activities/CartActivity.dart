@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_commerce/FoodDetailActivity.dart';
+import 'package:flutter_commerce/activities/FoodDetailActivity.dart';
 
-import 'FoodModel.dart';
+import '../models/FoodModel.dart';
 
 class CartActivity extends StatefulWidget {
   const CartActivity({Key? key}) : super(key: key);
