@@ -15,12 +15,12 @@ class _CartActivityState extends State<CartActivity> {
     FoodModel(
         name: "Grilled Skewers",
         subname: "Spicy Mutton",
-        price: "36.00",
+        price: "31.00",
         imageUrl: "res/img.png"),
     FoodModel(
         name: "Thai Spaghetti",
         subname: "Spicy Mutton",
-        price: "36.00",
+        price: "46.00",
         imageUrl: "res/img_1.png"),
     FoodModel(
         name: "Grilled Skewers",
@@ -31,7 +31,7 @@ class _CartActivityState extends State<CartActivity> {
         name: "Thai Spaghetti",
         subname: "Spicy Mutton",
         price: "36.00",
-        imageUrl: "res/img_1.png"),
+        imageUrl: "res/img.png"),
     FoodModel(
         name: "Grilled Skewers",
         subname: "Spicy Mutton",
@@ -41,7 +41,7 @@ class _CartActivityState extends State<CartActivity> {
         name: "Thai Spaghetti",
         subname: "Spicy Mutton",
         price: "36.00",
-        imageUrl: "res/img_1.png"),
+        imageUrl: "res/img.png"),
     FoodModel(
         name: "Grilled Skewers",
         subname: "Spicy Mutton",
@@ -115,7 +115,7 @@ class _CartActivityState extends State<CartActivity> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         "Cart List",
                         style: TextStyle(
@@ -208,7 +208,7 @@ class _CartActivityState extends State<CartActivity> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(8, 16, 8, 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
@@ -219,7 +219,11 @@ class _CartActivityState extends State<CartActivity> {
                           color: Colors.redAccent,
                         ),
                       ),
-                      Text("Do you have any discount code?")
+                      Text(
+                        "Do you have any discount code?",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 16),
+                      )
                     ],
                   ),
                 ),
@@ -242,12 +246,16 @@ class _CartActivityState extends State<CartActivity> {
                             Text(
                               "Subtotal",
                               style: TextStyle(
-                                  color: Colors.grey.shade600, fontSize: 18),
+                                  color: Colors.grey.shade600,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500),
                             ),
                             Text(
                               "\$ 96.00",
                               style: TextStyle(
-                                  color: Colors.grey.shade600, fontSize: 18),
+                                  color: Colors.grey.shade600,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
@@ -258,12 +266,16 @@ class _CartActivityState extends State<CartActivity> {
                             Text(
                               "Est.Tax",
                               style: TextStyle(
-                                  color: Colors.grey.shade600, fontSize: 18),
+                                  color: Colors.grey.shade600,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500),
                             ),
                             Text(
                               "2.00",
                               style: TextStyle(
-                                  color: Colors.grey.shade600, fontSize: 18),
+                                  color: Colors.grey.shade600,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
@@ -274,12 +286,16 @@ class _CartActivityState extends State<CartActivity> {
                             Text(
                               "Delivery",
                               style: TextStyle(
-                                  color: Colors.grey.shade600, fontSize: 18),
+                                  color: Colors.grey.shade600,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500),
                             ),
                             Text(
                               "Free",
                               style: TextStyle(
-                                  color: Colors.grey.shade600, fontSize: 18),
+                                  color: Colors.grey.shade600,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
@@ -296,13 +312,17 @@ class _CartActivityState extends State<CartActivity> {
                           children: const [
                             Text(
                               "Total",
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500),
                             ),
                             Text(
                               "\$ 98.00",
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
