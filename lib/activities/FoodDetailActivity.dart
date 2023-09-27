@@ -15,43 +15,43 @@ class FoodDetailActivity extends StatefulWidget {
 class _FoodDetailActivityState extends State<FoodDetailActivity> {
   FirebaseDatabase database = FirebaseDatabase.instance;
 
-  final List<FoodModel> foods = [
-    FoodModel(
-        name: "Grilled Skewers",
-        subname: "Spicy Mutton",
-        price: "36.00",
-        imageUrl: "res/img.png"),
-    FoodModel(
-        name: "Thai Spagetti",
-        subname: "Spicy Mutton",
-        price: "36.00",
-        imageUrl: "res/img.png"),
-    FoodModel(
-        name: "Grilled Skewers",
-        subname: "Spicy Mutton",
-        price: "36.00",
-        imageUrl: "res/img.png"),
-    FoodModel(
-        name: "Thai Spagetti",
-        subname: "Spicy Mutton",
-        price: "36.00",
-        imageUrl: "res/img.png"),
-    FoodModel(
-        name: "Grilled Skewers",
-        subname: "Spicy Mutton",
-        price: "36.00",
-        imageUrl: "res/img.png"),
-    FoodModel(
-        name: "Thai Spagetti",
-        subname: "Spicy Mutton",
-        price: "36.00",
-        imageUrl: "res/img.png"),
-    FoodModel(
-        name: "Grilled Skewers",
-        subname: "Spicy Mutton",
-        price: "36.00",
-        imageUrl: "res/img.png"),
-  ];
+  // final List<FoodModel> foods = [
+  //   FoodModel(
+  //       name: "Grilled Skewers",
+  //       subname: "Spicy Mutton",
+  //       price: "36.00",
+  //       imageUrl: "res/img.png"),
+  //   FoodModel(
+  //       name: "Thai Spagetti",
+  //       subname: "Spicy Mutton",
+  //       price: "36.00",
+  //       imageUrl: "res/img.png"),
+  //   FoodModel(
+  //       name: "Grilled Skewers",
+  //       subname: "Spicy Mutton",
+  //       price: "36.00",
+  //       imageUrl: "res/img.png"),
+  //   FoodModel(
+  //       name: "Thai Spagetti",
+  //       subname: "Spicy Mutton",
+  //       price: "36.00",
+  //       imageUrl: "res/img.png"),
+  //   FoodModel(
+  //       name: "Grilled Skewers",
+  //       subname: "Spicy Mutton",
+  //       price: "36.00",
+  //       imageUrl: "res/img.png"),
+  //   FoodModel(
+  //       name: "Thai Spagetti",
+  //       subname: "Spicy Mutton",
+  //       price: "36.00",
+  //       imageUrl: "res/img.png"),
+  //   FoodModel(
+  //       name: "Grilled Skewers",
+  //       subname: "Spicy Mutton",
+  //       price: "36.00",
+  //       imageUrl: "res/img.png"),
+  // ];
   int count = 0;
 
   @override
@@ -118,12 +118,12 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
                     children: [
                       SizedBox(
                         height: 260,
-                        width: 260,
-                        // margin: const EdgeInsets.all(8.0),
-                        child: Image.asset(
-                          "res/img_2.png",
-                        ),
-                      ),
+                    width: 260,
+                    // margin: const EdgeInsets.all(8.0),
+                    child: Image.network(
+                      foods[0].imageUrl,
+                    ),
+                  ),
                     ],
                   ),
                   Container(
@@ -229,19 +229,19 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text("Spicy Chicken\nRicemix",
-                            style: TextStyle(
-                                fontSize: 26,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600)),
-                        Row(
-                          children: [
-                            Padding(
-                              padding:
+                    Text(foods[0].name,
+                        style: const TextStyle(
+                            fontSize: 26,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600)),
+                    Row(
+                      children: [
+                        Padding(
+                          padding:
                               const EdgeInsets.fromLTRB(12.0, 6.0, 12.0, 6.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
                                   const Icon(
                                     Icons.alarm,
                                     color: Colors.redAccent,
@@ -308,11 +308,11 @@ class _FoodDetailActivityState extends State<FoodDetailActivity> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Image.asset(
-                                foods[index].imageUrl,
-                                height: 66,
-                                width: 66,
-                              ),
+                              Image.network(
+                            foods[index].imageUrl,
+                            height: 66,
+                            width: 66,
+                          ),
                             ],
                           ),
                         );
