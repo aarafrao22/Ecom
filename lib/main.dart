@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_commerce/firebase_options.dart';
-
 import 'activities/MyHomePage.dart';
 
 void main() async {
